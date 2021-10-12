@@ -19,9 +19,11 @@ public class IndexController {
     @GetMapping("/test")
     public String index()
     {
+        Activity activity = new Activity("test", 5);
+        activityRepository.save(activity);
         List<Activity> activities = activityRepository.findAll();
-        for (Activity activity : activities) {
-            Set<Equipment> equipment = activity.getEquipment();
+        for (Activity activity2 : activities) {
+            Set<Equipment> equipment = activity2.getEquipment();
             for (Equipment equipment1 : equipment) {
                 System.out.println(equipment1.getName());
             }

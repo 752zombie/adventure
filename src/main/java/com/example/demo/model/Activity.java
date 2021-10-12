@@ -7,7 +7,9 @@ import java.util.Set;
 @Entity
 public class Activity {
 
+
      @Id
+     @GeneratedValue
      Integer activity_id;
      String name;
      Integer ageLimit;
@@ -16,9 +18,16 @@ public class Activity {
      Integer duration;
 
      @OneToMany
-     @JoinColumn(name = "equipment_id")
+     @JoinColumn(name = "activity_id")
      private Set<Equipment> equipment = new HashSet<>();
 
+     public Activity() {
+     }
+
+     public Activity(String name, Integer ageLimit) {
+          this.name = name;
+          this.ageLimit = ageLimit;
+     }
 
      public Integer getId() {
           return activity_id;

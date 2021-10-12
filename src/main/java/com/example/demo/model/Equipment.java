@@ -1,14 +1,12 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Equipment {
 
     @Id
+    @GeneratedValue
     Integer equipment_id;
     String name;
 
