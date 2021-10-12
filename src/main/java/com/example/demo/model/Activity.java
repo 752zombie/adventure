@@ -67,4 +67,20 @@ public class Activity {
      public void setDuration(Integer duration) {
           this.duration = duration;
      }
+
+     public Integer getActivity_id() {
+          return activity_id;
+     }
+
+     public void setActivity_id(Integer activity_id) {
+          this.activity_id = activity_id;
+     }
+
+     public Set<Equipment> getEquipment() {
+          return equipment;
+     }
+
+     public void setEquipment(Set<Equipment> equipment) {
+          this.equipment = equipment;
+     }
 }

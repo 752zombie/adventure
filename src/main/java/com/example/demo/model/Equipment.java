@@ -21,7 +21,7 @@ public class Equipment {
     }
 
     public void setId(Integer id) {
-        this.equipment_id = equipment_id;
+        this.equipment_id = id;
     }
 
     public String getName() {
