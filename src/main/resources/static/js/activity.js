@@ -12,3 +12,13 @@ function displayActivity(activity) {
     document.getElementById("activity-description").innerHTML = "description: " + activity.description;
     document.getElementById("activity-name").innerHTML = activity.name;
 }
+
+function editActivity() {
+    document.getElementById("edit-fields").style.display = "block";
+    document.getElementById("show-activity").style.display = "none";
+}
+
+function saveActivity() {
+    document.getElementById("edit-fields").style.display = "none";
+    document.getElementById("show-activity").style.display = "block";
+}

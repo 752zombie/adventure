@@ -6,10 +6,21 @@
 </head>
 <body onload="fetchActivity()">
 
-<h1 id="activity-name"></h1>
-<h3 id="age-limit"></h3>
-<h3 id="capacity"></h3>
-<div id="activity-description"></div>
+<div id="show-activity">
+    <h1 id="activity-name"></h1>
+    <h3 id="age-limit"></h3>
+    <h3 id="capacity"></h3>
+    <div id="activity-description"></div>
+</div>
+
+
+<button onclick="editActivity()">Edit activity</button>
+
+<div id="edit-fields" style="display: none">
+    <label for="activity-name-input">Activity name: </label>
+    <input type="text" name="activity-name" id="activity-name-input">
+    <button onclick="saveActivity()">Save changes</button>
+</div>
 
 
 
