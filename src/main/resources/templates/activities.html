@@ -4,15 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Adventure</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Datepicker - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
 </head>
 <body>
-<a href="activity.html">activities</a>
+
+
 <div class="card" style="width: 18rem;">
     <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
         <h5 class="card-title">SUMO BRYDNING</h5>
         <p class="card-text">Sumobrydning egner sig suverænt godt til fødselsdage, polterabender, firmaarrangementer og en masse andre gode oplevelser.</p>
-        <a href="#" class="btn btn-primary">book</a>
+        <p>Date: <input type="text" id="datepicker"></p>
+        <a href="activity.html" class="btn btn-primary">BOOK NU</a>
     </div>
 </div>
 <div class="card" style="width: 18rem;">
@@ -21,7 +34,9 @@
         <h5 class="card-title">GOKART</h5>
         <p class="card-text">Få en drøngod oplevelse med dine venner!
             Oplev suset i maven når du overhælder dine venner eller tager svinget i fuld fart! </p>
-        <a href="#" class="btn btn-primary">BOOK NU</a>
+        <a href="activity.html/2" class="btn btn-primary">BOOK NU</a>
+
+
     </div>
 </div>
 <div class="card" style="width: 18rem;">
@@ -29,7 +44,7 @@
     <div class="card-body">
         <h5 class="card-title">PAINTBALL</h5>
         <p class="card-text">Vores 7 Paintball baner danner rammen om et univers, af action, spænding og adrenalin-pumpende underholdning.</p>
-        <a href="#" class="btn btn-primary">BOOK NU</a>
+        <a href="activity.html/3" class="btn btn-primary">BOOK NU</a>
     </div>
 </div>
 <div class="card" style="width: 18rem;">
@@ -38,11 +53,11 @@
         <h5 class="card-title">MINI GOLF</h5>
         <p class="card-text">Kom godt omkring med vores indendørs 18 hullers minigolfbane.
             Spil jer igennem en miniature naturpark, komplet med små stier og søer</p>
-        <a href="#" class="btn btn-primary">BOOK NU</a>
+        <a href="activity.html/4" class="btn btn-primary">BOOK NU</a>
     </div>
 </div>
 <script>
-    sessionsStorage.set
+    sessionsStorage.setItem.("id,"1");
 </script>
 </body>
 </html>
