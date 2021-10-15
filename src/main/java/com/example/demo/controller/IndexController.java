@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import java.util.List;
 import java.util.Set;
 
@@ -16,7 +15,8 @@ public class IndexController {
 
     @Autowired
     ActivityRepository activityRepository;
-    @GetMapping("/test")
+
+    @GetMapping("/index")
     public String index()
     {
         Activity activity = new Activity("test", 5);
@@ -28,7 +28,7 @@ public class IndexController {
                 System.out.println(equipment1.getName());
             }
         }
-        return "index2";
+        return "index";
     }
 
 }

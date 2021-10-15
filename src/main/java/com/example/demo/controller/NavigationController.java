@@ -41,5 +41,10 @@ public class NavigationController {
     public String show_activity_list(){
         return "activity_list";
     }
+
+    @GetMapping("/")
+    public String index(){
+        return "index";
+    }
 }
 

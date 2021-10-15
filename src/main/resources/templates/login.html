@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" class="h-100">
 <head>
     <meta charset="UTF-8">
+    <title>Login</title>
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/main.css"/>
-    <title>Login</title>
+    <link th:href="@{styles/main.css}" rel="stylesheet"/>
 </head>
 <body class="d-flex flex-column h-100">
 
@@ -14,14 +14,32 @@
 <main role="main" class="flex-shrink-0">
     <div class="container mt-5">
         <div class="jumbotron">
-            <h1>Login Page</h1>
+            <h1>Log ind</h1>
+            <input type="text" class="user_info" placeholder="Brugernavn">
+            <input type="text" class="user_info" placeholder="Password">
+            <button type="submit" class="pbGet">Login</button>
         </div>
     </div>
+
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h1>Opret bruger</h1>
+            <input type="text" class="create_user" placeholder="Brugernavn">
+            <input type="text" class="create_user" placeholder="Password">
+            <input type="text" class="create_user" placeholder="Email">
+            <button type="submit" class="createUserPB">Opret</button>
+        </div>
+    </div>
+
 </main>
 
-<script>
-    <!--Bootstrap Bundle -->
-    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js">
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+<script src="/js/login.js">
+
 </script>
 </body>
 </html>
