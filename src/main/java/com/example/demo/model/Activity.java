@@ -12,6 +12,7 @@ public class Activity {
      @GeneratedValue
      Integer activity_id;
      String name;
+     String description;
      Integer ageLimit;
      Integer userCapacity;
      Integer heighLimit;
@@ -91,5 +92,13 @@ public class Activity {
 
      public void setEquipment(Set<Equipment> equipment) {
           this.equipment = equipment;
+     }
+
+     public String getDescription() {
+          return description;
+     }
+
+     public void setDescription(String description) {
+          this.description = description;
      }
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
-public class ActivityController {
+public class ActivityRestController {
 
     @Autowired
     ActivityRepository activityRepository;
