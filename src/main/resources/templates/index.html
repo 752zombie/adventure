@@ -1,27 +1,60 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" class="h-100">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Adventure Alley</title>
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link th:href="@{css/main.css}" rel="stylesheet" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.css"/>
+
+    <title>AdventureAlley Web Application</title>
 </head>
+
+
 <body class="d-flex flex-column h-100">
 
 <div th:replace="~{fragments/header :: header}"> </div>
 
-
 <main role="main" class="flex-shrink-0">
     <div class="container mt-5">
         <div class="jumbotron">
-            <h1>Velkommen til Adventure Alley! </h1>
+            <h1>Welcome to AdventureAlley!</h1>
         </div>
     </div>
 </main>
 
-<script
-        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js">
-</script>
+<div class="container mt-5">
+    <h3 id="menu"> Menu</h3>
+    <hr class="divisor">
+    <div class="row">
+        <div class="col-sm">
+            <a href="create_reservation" class="btn btn-primary btn-block mt-2">Create Reservation</a>
+        </div>
+        <div class="col-sm">
+            <a href="delete_reservation" class="btn btn-primary btn-block mt-2">Delete Reservation</a>
+        </div>
+        <div class="col-sm">
+            <a href="reservation_list" class="btn btn-primary btn-block mt-2">See Reservation List</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <a href="create_activity" class="btn btn-primary btn-block mt-2">Create Activity</a>
+        </div>
+        <div class="col-sm">
+            <a href="delete_activity" class="btn btn-primary btn-block mt-2">Delete Activity</a>
+        </div>
+        <div class="col-sm">
+            <a href="activity_list" class="btn btn-primary btn-block mt-2">See Activity List</a>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
 </body>
 </html>
