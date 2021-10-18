@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
 import java.util.Optional;
 
 @Controller
@@ -22,7 +21,8 @@ public class LoginController {
         Optional<User> user1 = userRepository.findByUserNameAndPassword(user.getUserName(), user.getPassword());
         user1.ifPresent(value -> System.out.println(value.getEmail()));
         if (user1.isPresent()){
-            return "redirect:/";
+            System.out.println('H');
+            return "index";
         }
         else return "login";
     }
