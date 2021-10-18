@@ -15,7 +15,7 @@ public class Activity {
      String description;
      Integer ageLimit;
      Integer userCapacity;
-     Integer heighLimit;
+     Integer heightLimit;
      Integer duration;
 
      @OneToMany
@@ -62,12 +62,12 @@ public class Activity {
           this.userCapacity = userCapacity;
      }
 
-     public Integer getHeighLimit() {
-          return heighLimit;
+     public Integer getHeightLimit() {
+          return heightLimit;
      }
 
-     public void setHeighLimit(Integer heighLimit) {
-          this.heighLimit = heighLimit;
+     public void setHeightLimit(Integer heighLimit) {
+          this.heightLimit = heighLimit;
      }
 
      public Integer getDuration() {

@@ -11,12 +11,14 @@ function fetchActivity() {
 }
 
 function displayActivity() {
-    copySetToMap();
     document.getElementById("edit-fields").style.display = "none";
     document.getElementById("show-activity").style.display = "block";
-    document.getElementById("age-limit").innerHTML = "age-limit: " + currentActivity.ageLimit;
-    document.getElementById("capacity").innerHTML = "capacity: " + currentActivity.userCapacity;
-    document.getElementById("activity-description").innerHTML = "description: " + currentActivity.description;
+
+    document.getElementById("duration").innerHTML = "Duration: " + currentActivity.duration;
+    document.getElementById("height-limit").innerHTML = "Height limit: " + currentActivity.heightLimit;
+    document.getElementById("age-limit").innerHTML = "Age limit: " + currentActivity.ageLimit;
+    document.getElementById("capacity").innerHTML = "People capacity: " + currentActivity.userCapacity;
+    document.getElementById("activity-description").innerHTML = "Description: " + currentActivity.description;
     document.getElementById("activity-name").innerHTML = currentActivity.name;
 }
 
@@ -30,7 +32,7 @@ function copySetToMap() {
 
 function editActivity() {
 
-
+    copySetToMap();
     document.getElementById("edit-fields").style.display = "block";
     document.getElementById("show-activity").style.display = "none";
 
