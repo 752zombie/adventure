@@ -37,7 +37,6 @@ public class ActivityRestController {
         Set<Equipment> equipment = activity.getEquipment();
 
         for (Equipment equipment1 : equipment) {
-            System.out.println(equipment1.getName());
             equipmentRepository.save(equipment1);
         }
         activityRepository.save(activity);

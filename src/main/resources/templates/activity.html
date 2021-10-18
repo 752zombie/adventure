@@ -12,22 +12,39 @@
     <h3 id="capacity"></h3>
     <h3 id="height-limit"></h3>
     <h3 id="duration"></h3>
+    <h3 id="equipment"></h3>
     <div id="activity-description"></div>
+    <button onclick="editActivity()">Edit activity</button>
 </div>
 
 
-<button onclick="editActivity()">Edit activity</button>
+
 
 <div id="edit-fields" style="display: none">
 
     <label for="activity-name-input">Activity name: </label>
-    <input type="text" name="activity-name" id="activity-name-input">
+    <input type="text" name="activity-name" id="activity-name-input"><br>
+
+    <label for="height-limit-input">Height limit: </label>
+    <input type="text" name="height-limit" id="height-limit-input"><br>
+
+    <label for="duration-input">Duration: </label>
+    <input type="text" name="duration" id="duration-input"><br>
+
+    <label for="age-limit-input">Age limit: </label>
+    <input type="text" name="age-limit" id="age-limit-input"><br>
+
+    <label for="capacity-input">People capacity: </label>
+    <input type="text" name="capacity" id="capacity-input"><br>
+
+    <label for="description-input">Description: </label>
+    <textarea name="description" id="description-input" cols="30" rows="10"></textarea><br>
 
     <label for="activity-equipment-input">Add equipment: </label>
     <input type="text" name="activity-equipment" id="activity-equipment-input">
-    <button onclick="addEquipment()">Add</button>
+    <button onclick="addEquipment()">Add</button><br>
 
-    <button onclick="saveActivity()">Save changes</button>
+    <button onclick="saveActivity()" id="save-button">Save changes</button>
     <button onclick="discardChanges()">Discard changes and return to overview</button>
 </div>
 

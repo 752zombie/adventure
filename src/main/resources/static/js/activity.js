@@ -10,11 +10,29 @@ function fetchActivity() {
     prom.then(json => {currentActivity = json; displayActivity()});
 }
 
+function getEquipmentText() {
+    if (currentActivity.equipment == null || currentActivity.equipment.length === 0) {
+        return "No equipment needed";
+    }
+
+    let equipmentText = "";
+    for (let i = 0; i < currentActivity.equipment.length - 1; i++) {
+           equipmentText += currentActivity.equipment[i].name + ", ";
+    }
+
+    equipmentText += currentActivity.equipment[currentActivity.equipment.length - 1].name;
+
+    return equipmentText;
+}
+
 function displayActivity() {
     document.getElementById("edit-fields").style.display = "none";
     document.getElementById("show-activity").style.display = "block";
 
-    document.getElementById("duration").innerHTML = "Duration: " + currentActivity.duration;
+    document.getElementById("equipment").innerHTML = "Equipment: " + getEquipmentText();
+
+
+    document.getElementById("duration").innerHTML = "Duration: " + (currentActivity.duration != null ? currentActivity.duration : "Not specified");
     document.getElementById("height-limit").innerHTML = "Height limit: " + currentActivity.heightLimit;
     document.getElementById("age-limit").innerHTML = "Age limit: " + currentActivity.ageLimit;
     document.getElementById("capacity").innerHTML = "People capacity: " + currentActivity.userCapacity;
@@ -39,12 +57,16 @@ function editActivity() {
     generateEquipmentBoxes();
 
     document.getElementById("activity-name-input").value = currentActivity.name;
+    document.getElementById("duration-input").value = currentActivity.duration;
+    document.getElementById("age-limit-input").value = currentActivity.ageLimit;
+    document.getElementById("capacity-input").value = currentActivity.userCapacity;
+    document.getElementById("description-input").value = currentActivity.description;
 }
 
 function generateEquipmentBoxes() {
     let container = document.createElement("div");
     container.setAttribute("id", "equipment-container");
-    document.getElementById("edit-fields").appendChild(container);
+    document.getElementById("edit-fields").insertBefore(container, document.getElementById("save-button"));
 
     for (let [id, equipment] of equipmentMap) {
         let div = document.createElement("div");
@@ -67,7 +89,6 @@ function deleteParentElement(event) {
 }
 
 function saveActivity() {
-    console.log(typeof currentActivity.equipment);
    currentActivity.equipment = Array.from(equipmentMap.values());
 
     document.getElementById("equipment-container").remove();
@@ -82,6 +103,11 @@ function saveActivity() {
     let url = "http://localhost:8080/api/save-activity";
 
     currentActivity.name = document.getElementById("activity-name-input").value;
+    currentActivity.ageLimit = document.getElementById("age-limit-input").value;
+    currentActivity.heightLimit = document.getElementById("height-limit-input").value;
+    currentActivity.duration = document.getElementById("duration-input").value;
+    currentActivity.userCapacity = document.getElementById("capacity-input").value;
+    currentActivity.description = document.getElementById("description-input").value;
     saveActivityRequest.body = JSON.stringify(currentActivity);
 
     fetch(url, saveActivityRequest).then(data => displayActivity());
