@@ -90,6 +90,14 @@ function saveActivity() {
     document.getElementById("show-activity").style.display = "block";
 }
 
+function addEquipment() {
+    const equipmentName = document.getElementById("activity-equipment-input").value;
+    const equipment = {name : equipmentName};
+    equipmentMap.set("" + nextEquipmentId++, equipment);
+    document.getElementById("equipment-container").remove();
+    generateEquipmentBoxes();
+}
+
 function discardChanges() {
     document.getElementById("equipment-container").remove();
     fetchActivity();

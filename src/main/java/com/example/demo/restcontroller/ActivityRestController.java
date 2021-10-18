@@ -3,6 +3,7 @@ package com.example.demo.restcontroller;
 import com.example.demo.model.Activity;
 import com.example.demo.model.Equipment;
 import com.example.demo.repository.ActivityRepository;
+import com.example.demo.repository.EquipmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,9 @@ public class ActivityRestController {
 
     @Autowired
     ActivityRepository activityRepository;
+
+    @Autowired
+    EquipmentRepository equipmentRepository;
 
 
     @GetMapping("/api/get-activity/{id}")
@@ -34,6 +38,7 @@ public class ActivityRestController {
 
         for (Equipment equipment1 : equipment) {
             System.out.println(equipment1.getName());
+            equipmentRepository.save(equipment1);
         }
         activityRepository.save(activity);
 
