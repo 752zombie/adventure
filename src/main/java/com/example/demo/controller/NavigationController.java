@@ -12,34 +12,9 @@ public class NavigationController {
         return "login";
     }
 
-    @GetMapping("/create_reservation")
+    @GetMapping("/create_booking")
     public String create_reservation(){
-        return "create_reservation";
-    }
-
-    @GetMapping("/delete_reservation")
-    public String delete_reservation(){
-        return "delete_reservation";
-    }
-
-    @GetMapping("/reservation_list")
-    public String show_reservation_list(){
-        return "reservation_list";
-    }
-
-    @GetMapping("/create_activity")
-    public String create_activity(){
-        return "create_activity";
-    }
-
-    @GetMapping("/delete_activity")
-    public String delete_activity(){
-        return "delete_activity";
-    }
-
-    @GetMapping("/activity_list")
-    public String show_activity_list(){
-        return "activity_list";
+        return "create_booking";
     }
 
     @GetMapping("/")

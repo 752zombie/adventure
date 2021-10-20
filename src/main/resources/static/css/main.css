@@ -1,4 +1,91 @@
 #menu{
-
     text-align: center;
 }
+
+#edit-button{
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee;
+    margin-left: 80px;
+}
+
+#add-button{
+    background-color: #00b300;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee
+}
+
+#save-button{
+    background-color: #00b300;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee
+}
+
+#discard-button{
+    background-color: #ff471a;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee
+}
+
+#activity-name{
+    font-family: "Arial";
+    border: 1px solid black;
+    text-align: center;
+    padding: 20px;
+    width: 50%;
+    margin-left: 80px;
+}
+
+#age-limit{
+    border: 1px solid black;
+    text-align: left;
+    padding: 10px;
+    width: 50%;
+    margin-left: 80px;
+}
+
+#capacity{
+    border: 1px solid black;
+    text-align: left;
+    padding: 10px;
+    width: 50%;
+    margin-left: 80px;
+}
+
+#height-limit{
+    border: 1px solid black;
+    text-align: left;
+    padding: 10px;
+    width: 50%;
+    margin-left: 80px;
+}
+#duration{
+    border: 1px solid black;
+    text-align: left;
+    padding: 10px;
+    width: 50%;
+    margin-left: 80px;
+}
+#equipment{
+    border: 1px solid black;
+    text-align: left;
+    padding: 10px;
+    width: 50%;
+    margin-left: 80px;
+}
+
+#activity-description{
+    border: 1px solid black;
+    text-align: left;
+    padding: 10px;
+    width: 50%;
+    margin-left: 80px;
+}
+
+
+
+
+

@@ -7,54 +7,20 @@
     <link rel="stylesheet" href="../css/main.css"/>
     <title>Activity Page</title>
 </head>
-
-
-<body class="d-flex flex-column h-100" onload="fetchActivity()">
+<body onload="fetchActivity()">
 
 <div th:replace="~{fragments/header :: header}"></div>
 
-<main role="main" class="flex-shrink-0">
-    <div class="container mt-5">
-        <div class="jumbotron">
-            <h1>Edit Activity </h1>
-        </div>
-    </div>
-</main>
-
 <div id="show-activity">
-
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col"> <div id="activity-name"></div></th>
-        </tr>
-        </thead>
-
-        <tbody>
-        <tr>
-            <td><div id="age-limit"></div></td>
-        </tr>
-        <tr>
-            <td><div id="capacity"></div></td>
-        </tr>
-        <tr>
-            <td><div id="height-limit"></div></td>
-        </tr>
-        <tr>
-            <td><div id="duration"></div></td>
-        </tr>
-        <tr>
-            <td><div id="equipment"></div></td>
-        </tr>
-        <tr>
-            <td><div id="activity-description"></div></td>
-        </tr>
-        </tbody>
-    </table>
-
-    <button onclick="editActivity()" class="btn btn-primary" id="edit-button">Edit activity</button>
+    <h1 id="activity-name"></h1>
+    <h3 id="age-limit"></h3>
+    <h3 id="capacity"></h3>
+    <h3 id="height-limit"></h3>
+    <h3 id="duration"></h3>
+    <h3 id="equipment"></h3>
+    <div id="activity-description"></div>
+    <button onclick="editActivity()" id="edit-button" class="btn btn-primary">Edit activity</button>
 </div>
-
 
 <div id="edit-fields" style="display: none">
 
@@ -77,13 +43,13 @@
     <textarea name="description" id="description-input" cols="30" rows="10"></textarea><br>
 
     <label for="activity-equipment-input">Add equipment: </label>
-    <input type="text" name="activity-equipment" id="activity-equipment-input">
-    <button onclick="addEquipment()"id="add-button"class="btn btn-primary">Add</button><br>
+    <input type="text" name="activity-equipment">
+    <button onclick="addEquipment()" id="activity-equipment-input" class="btn btn-primary">Add</button><br>
 
     <button onclick="saveActivity()" id="save-button" class="btn btn-primary"> Save changes</button>
-    <button onclick="discardChanges()"id="discard-button" class="btn btn-primary">Discard changes and return to overview</button>
+    <button onclick="discardChanges()" id="discard-button" class="btn btn-primary">Discard changes and return to overview</button>
 </div>
 
+<!-- Script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <script src="../js/activity.js"></script>
-</body>
-</html>
