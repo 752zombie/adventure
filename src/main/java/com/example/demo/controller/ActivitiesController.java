@@ -20,6 +20,7 @@ public class ActivitiesController {
         {
             Activity activity = new Activity("hugo", 5);
             activityRepository.save(activity);
+
             List<Activity> activities = activityRepository.findAll();
             for (Activity activity2 : activities) {
                 Set<Equipment> equipment = activity2.getEquipment();
