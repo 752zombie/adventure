@@ -1,3 +1,5 @@
+let activities;
+
 function createActivity() {
     document.getElementById("create-activity").style.display = "block";
     //document.getElementById("show-createform").style.display = "none";
@@ -8,7 +10,7 @@ function saveActivity() {
    // document.getElementById("show-createform").style.display = "block";
          var activityAgeLimit = document.getElementById("activityAgeLimit").value;
          var activityDuration = document.getElementById("activityDuration").value;
-         var heighLimit = document.getElementById("heighLimit").value;
+         var heightLimit = document.getElementById("heightLimit").value;
          var activityName = document.getElementById("activityName").value;
          var userCapacity = document.getElementById("userCapacity").value;
          var description = document.getElementById("description").value;
@@ -21,7 +23,7 @@ function saveActivity() {
         const data = JSON.stringify({
           ageLimit: activityAgeLimit,
           duration: activityDuration,
-          heighLimit: heighLimit,
+          heightLimit: heightLimit,
           name: activityName,
           userCapacity: userCapacity,
           description: description,
@@ -36,43 +38,48 @@ function saveActivity() {
           }
         })
 
-        xhr.open('POST', '/activity')
-        xhr.setRequestHeader('content-type', 'application/json')
-        xhr.send(data)
+        xhr.open('POST', '/activity');
+        xhr.setRequestHeader('content-type', 'application/json');
+        xhr.send(data);
         alert(save_user_input + " activity saved!");
 
 
          }
         }
 
- function showActivities() {
-    document.getElementById("show-activities").style.display = "block";
-     //document.getElementById("activities-fields").style.display = "none";
+function fetchActivities() {
+    const url = "http://localhost:8080/api/get-activities";
+    const prom = fetch(url).then(data => data.json());
+    prom.then(json => {activities = json; displayActivities()});
 }
 
-
 function displayActivities() {
+    for (let activity of activities) {
 
-   //document.getElementById("show-activities").style.display = "none";
-  document.getElementById("activities-fields").style.display = "none";
-      let url = "http://localhost:8080/api/get-activities/";
+        let col = document.createElement("div");
+        col.setAttribute("class", "col-sm-4");
+
+        let card = document.createElement("div");
+        card.setAttribute("class", "card");
+
+        let cardBody = document.createElement("div");
+        cardBody.setAttribute("class", "card-body");
+
+        let activityName = document.createElement("h5");
+        let activityNameText = document.createTextNode(activity.name);
+        activityName.setAttribute("class", "card-title");
+        activityName.appendChild(activityNameText);
+
+        let description = document.createElement("p");
+        let descriptionText = document.createTextNode(activity.description);
+        description.setAttribute("class", "card-text");
+        description.appendChild(descriptionText);
 
 
-
-  let activities = console.log();
-  let list = document.getElementById("activities");
-
-  data.forEach((item)=>{
-  let li = document.createElement("li");
-  li.innerText = item;
-  list.appendChild(li);
-})
-
-
-// document.getElementById("activities").innerHTML ="Activities: " + ;
- //document.getElementById("myList").innerHTML = "" activities;
-
-
-
-
+        document.getElementById("activities-container").appendChild(col);
+        col.appendChild(card);
+        card.appendChild(cardBody);
+        cardBody.appendChild(activityName);
+        cardBody.appendChild(description);
+    }
 }
