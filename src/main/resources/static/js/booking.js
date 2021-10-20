@@ -1,11 +1,16 @@
-function createActivity() {
-    document.getElementById("create-activity").style.display = "block";
+function createBooking() {
+    document.getElementById("create-booking").style.display = "block";
     //document.getElementById("show-createform").style.display = "none";
 }
 
 function saveActivity() {
-    document.getElementById("create-activity").style.display = "none";
+    document.getElementById("createbooking").style.display = "none";
    // document.getElementById("show-createform").style.display = "block";
+     String activity_name;
+       Integer booking_no;
+       Date date;
+       String name;
+       String lastName;
          var activityAgeLimit = document.getElementById("activityAgeLimit").value;
          var activityDuration = document.getElementById("activityDuration").value;
          var heighLimit = document.getElementById("heighLimit").value;
@@ -44,35 +49,3 @@ function saveActivity() {
 
          }
         }
-
- function showActivities() {
-    document.getElementById("show-activities").style.display = "block";
-     //document.getElementById("activities-fields").style.display = "none";
-}
-
-
-function displayActivities() {
-
-   //document.getElementById("show-activities").style.display = "none";
-  document.getElementById("activities-fields").style.display = "none";
-      let url = "http://localhost:8080/api/get-activities/";
-
-
-
-  let activities = console.log();
-  let list = document.getElementById("activities");
-
-  data.forEach((item)=>{
-  let li = document.createElement("li");
-  li.innerText = item;
-  list.appendChild(li);
-})
-
-
-// document.getElementById("activities").innerHTML ="Activities: " + ;
- //document.getElementById("myList").innerHTML = "" activities;
-
-
-
-
-}

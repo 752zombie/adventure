@@ -6,9 +6,11 @@ import com.example.demo.repository.ActivityRepository;
 import com.example.demo.repository.EquipmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -45,4 +47,28 @@ public class ActivityRestController {
     }
 
 
+    @PostMapping(path = "/activity",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Activity> createActivity(@RequestBody Activity newActivity) throws Exception {
+        Activity activity = activityRepository.save(newActivity);
+        if (activity == null) {
+            throw new Exception();
+        } else {
+            return new ResponseEntity<>(activity, HttpStatus.CREATED);
+        }
+    }
+
+    @GetMapping("api/get-activities")
+    public ResponseEntity<List<Activity>> getActivities() {
+        List<Activity> activities = activityRepository.findAll();
+
+        return new ResponseEntity<>(activities,HttpStatus.FOUND);
+    }
+
+
 }
+
+
+
+

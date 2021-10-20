@@ -19,7 +19,6 @@ let postUserUrl = "http://localhost:8080/user_login";
 function startLogin(btn) {
     //console.log(inpGetUser.value)
     //inpGetUser.forEach(item => { console.log(item.value)})
-
     let user_name = inpGetUser[0].value;
     let user_password = inpGetUser[1].value;
     console.log(user_name + "from login")
@@ -27,7 +26,18 @@ function startLogin(btn) {
     userLogin.password = user_password;
     body = JSON.stringify(userLogin);
     postRequest.body = body;
-    fetch(postUserUrl, postRequest).then(response => response.json()).catch(error => console.log(error));
+    fetch(postUserUrl, postRequest)
+        .then(response => response.json())
+        .then(loginSuccess => {
+            if (loginSuccess){
+                window.location.href = "http://localhost:8080/";
+            }
+            else {
+                alert('Wrong username')
+            }
+        })
+        .catch(error => console.log(error));
+
 
 }
 
@@ -38,7 +48,6 @@ pbGetLogin.addEventListener('click', startLogin);
 
 
 // CREATE USER
-
 let createUserObj = {
     "userName": "",
     "password": "",
@@ -53,20 +62,19 @@ function createUser(btn) {
     createUserObj.userName = user_name;
     createUserObj.password = user_password;
     createUserObj.email = email;
-    console.log(user_name + "from create User")
-    console.log(createUserObj.userName);
-    console.log(user_password);
-    console.log(email);
     body = JSON.stringify(createUserObj);
     postRequest.body = body;
     fetch(postCreateUserUrl, postRequest).then(response => response.json()).catch(error => console.log(error));
-
+    userAddedToDb()
 }
 
 const create_user = document.querySelectorAll(".create_user");
 const createUserPB = document.querySelector(".createUserPB");
-
 createUserPB.addEventListener('click', createUser);
+
+function userAddedToDb(){
+    document.getElementById('create_user_header').value = 'User added to database'
+}
 
 
 
