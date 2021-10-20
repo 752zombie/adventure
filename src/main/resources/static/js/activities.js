@@ -65,7 +65,7 @@ function displayActivities() {
         let cardBody = document.createElement("div");
         cardBody.setAttribute("class", "card-body");
 
-        let activityName = document.createElement("h5");
+        let activityName = document.createElement("h4");
         let activityNameText = document.createTextNode(activity.name);
         activityName.setAttribute("class", "card-title");
         activityName.appendChild(activityNameText);
@@ -75,11 +75,18 @@ function displayActivities() {
         description.setAttribute("class", "card-text");
         description.appendChild(descriptionText);
 
+        let button = document.createElement("a");
+        button.setAttribute("href", "http://localhost:8080/activity/" + activity.activity_id);
+        button.setAttribute("class", "btn btn-primary");
+        let buttonText = document.createTextNode("View more information");
+        button.appendChild(buttonText);
+
 
         document.getElementById("activities-container").appendChild(col);
         col.appendChild(card);
         card.appendChild(cardBody);
         cardBody.appendChild(activityName);
         cardBody.appendChild(description);
+        cardBody.appendChild(button);
     }
 }
