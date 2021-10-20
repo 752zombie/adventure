@@ -12,8 +12,4 @@ public class ActivityController {
         return "activity";
     }
 
-    @GetMapping("/test2")
-    public String testPage() {
-        return "test";
-    }
 }
