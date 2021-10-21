@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 import java.util.Set;
 
-@Controller
+//@Controller
 public class IndexController {
 
-    @Autowired
-    ActivityRepository activityRepository;
-
+  //  @Autowired
+ //   ActivityRepository activityRepository;
+/*
     @GetMapping("/index")
     public String index()
     {
@@ -29,6 +29,6 @@ public class IndexController {
             }
         }
         return "index";
-    }
+    }*/
 
 }

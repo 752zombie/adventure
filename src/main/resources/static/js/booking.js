@@ -1,3 +1,4 @@
+let booking;
 function fetchBooking() {
     let url = "http://localhost:8080/api/get-booking/";
     const id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
@@ -19,7 +20,7 @@ function saveBooking() {
 
          var activity_name = document.getElementById("activity_name").value;
          var instructor = document.getElementById("instructor").value;
-         var datepicker = document.getElementById("datepicker").value;
+         var date = document.getElementById("date").value;
          var time = document.getElementById("time").value;
          var participants = document.getElementById("participants").value;
          var name = document.getElementById("name").value;
@@ -33,7 +34,7 @@ function saveBooking() {
         const data = JSON.stringify({
           activity_name: activity_name,
           instructor: instructor,
-          datepicker: datepicker,
+          date: date,
           time: time,
           participants: participants,
           name: name,
@@ -60,13 +61,16 @@ function saveBooking() {
 
 
 function displayBooking() {
-
-    document.getElementById("activity_name").innerHTML = "Activity name: " + booking.activity_name != null ? booking.activity_name : "Not specified";
+    document.getElementById("show-booking").style.display = "block" ;
+    document.getElementById("activity_name").innerHTML = "Activity name: " + booking.activity_name;
     document.getElementById("instructor").innerHTML = "Instructor : " + booking.instructor;
-    document.getElementById("datepicker").innerHTML = "Date: " + booking.datepicker;
+    document.getElementById("date").innerHTML = "Date: " + booking.date;
     document.getElementById("time").innerHTML = "Time: " + booking.time;
     document.getElementById("participants").innerHTML = "Participants: " + booking.participants;
     document.getElementById("name").innerHTML = booking.name;
     document.getElementById("lastName").innerHTML = booking.lastName;
+
+    document.getElementById("booking-name").innerHTML = booking.activity_name;
 }
+
 

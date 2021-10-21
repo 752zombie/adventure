@@ -12,7 +12,7 @@ public class Booking {
     String activity_name;
     String instructor;
     Date date;
-    LocalDate time;
+    String time;
     Integer participants;
     String name;
     String lastName;
@@ -52,16 +52,15 @@ public class Booking {
     public Date getDate() {
         return date;
     }
-
     public void setDate(Date date) {
         this.date = date;
     }
 
-    public LocalDate getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(LocalDate time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

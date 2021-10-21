@@ -8,7 +8,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class BookingController {
 
     @GetMapping("/booking/{id}")
-    public String activityPage(@PathVariable("id") Integer id) {
+    public String bookingPage(@PathVariable("id") Integer id) {
         return "booking";
     }
+
+
+    @GetMapping("/bookings")
+    public String createBooking() {return "bookings";}
+
 }

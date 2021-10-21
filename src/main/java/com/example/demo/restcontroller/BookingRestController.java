@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -39,6 +40,13 @@ public class BookingRestController {
         } else {
             return new ResponseEntity<>(booking, HttpStatus.CREATED);
         }
+    }
+
+    @GetMapping("api/get-bookings")
+    public ResponseEntity<List<Booking>> getBookings() {
+        List<Booking> bookings = bookingRepository.findAll();
+
+        return new ResponseEntity<>(bookings,HttpStatus.FOUND);
     }
 
 }
