@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/main.css"/>
+    <title>Resvervation</title>
+</head>
+
+
+<body class="d-flex flex-column h-100" onload="fetchBooking()">
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<div id="show-Booking">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col"> <div id="Booking_no"></div></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td><div id="activity_name"></div></td>
+        </tr>
+        <tr>
+            <td><div id="instructor"></div></td>
+        </tr>
+        <tr>
+            <td><div id="datepicker"></div></td>
+        </tr>
+        <tr>
+            <td><div id="time"></div></td>
+        </tr>
+        <tr>
+            <td><div id="participants"></div></td>
+        </tr>
+        <tr>
+            <td><div id="name"></div></td>
+        </tr>
+        <tr>
+            <td><div id="lastName"></div></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
