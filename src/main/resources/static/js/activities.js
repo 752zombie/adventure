@@ -42,7 +42,7 @@ function saveActivity() {
         xhr.setRequestHeader('content-type', 'application/json');
         xhr.send(data);
         alert(save_user_input + " activity saved!");
-
+        refresh();
 
          }
         }
@@ -75,11 +75,18 @@ function displayActivities() {
         description.setAttribute("class", "card-text");
         description.appendChild(descriptionText);
 
-        let button = document.createElement("a");
-        button.setAttribute("href", "http://localhost:8080/activity/" + activity.activity_id);
-        button.setAttribute("class", "btn btn-primary");
+        let infoButton = document.createElement("a");
+        infoButton.setAttribute("href", "http://localhost:8080/activity/" + activity.activity_id);
+        infoButton.setAttribute("class", "btn btn-primary");
         let buttonText = document.createTextNode("View more information");
-        button.appendChild(buttonText);
+        infoButton.appendChild(buttonText);
+
+        let deleteButton = document.createElement("button");
+        deleteButton.setAttribute("id", activity.activity_id);
+        deleteButton.setAttribute("class", "btn btn-danger");
+        let deleteButtonText = document.createTextNode("Delete");
+        deleteButton.addEventListener("click", deleteActivity);
+        deleteButton.appendChild(deleteButtonText);
 
 
         document.getElementById("activities-container").appendChild(col);
@@ -87,6 +94,30 @@ function displayActivities() {
         card.appendChild(cardBody);
         cardBody.appendChild(activityName);
         cardBody.appendChild(description);
-        cardBody.appendChild(button);
+        cardBody.appendChild(infoButton);
+        cardBody.appendChild(deleteButton);
     }
+}
+
+function deleteActivity(event) {
+    const activityIdToDelete = event.target.id;
+
+    let deleteActivityRequest = {
+        method: "POST",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: null
+    }
+
+    let url = "http://localhost:8080/api/delete-activity/" + activityIdToDelete;
+
+    fetch(url, deleteActivityRequest).then(data => refresh());
+
+
+}
+
+function refresh() {
+    document.getElementById("activities-container").innerHTML = "";
+    fetchActivities();
 }

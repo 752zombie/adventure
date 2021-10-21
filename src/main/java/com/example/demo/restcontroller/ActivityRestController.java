@@ -66,6 +66,12 @@ public class ActivityRestController {
         return new ResponseEntity<>(activities,HttpStatus.FOUND);
     }
 
+    @PostMapping("api/delete-activity/{id}")
+    public ResponseEntity<Activity> deleteActivity(@PathVariable("id") Integer id) {
+        activityRepository.deleteById(id);
+        return new ResponseEntity<>(null, HttpStatus.ACCEPTED);
+    }
+
 
 }
 
