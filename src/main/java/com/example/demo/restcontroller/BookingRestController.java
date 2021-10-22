@@ -49,4 +49,10 @@ public class BookingRestController {
         return new ResponseEntity<>(bookings,HttpStatus.FOUND);
     }
 
+    @PostMapping("/api/delete-booking/{id}")
+    public ResponseEntity<Booking> deleteBooking(@PathVariable("id") Integer id) {
+        bookingRepository.deleteById(id);
+        return new ResponseEntity<Booking>(HttpStatus.ACCEPTED);
+    }
+
 }

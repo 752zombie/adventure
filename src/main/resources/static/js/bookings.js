@@ -53,11 +53,18 @@ function displayBookings() {
         lastName.setAttribute("class", "card-text");
         lastName.appendChild(lastNameText);
 
-        let button = document.createElement("a");
-        button.setAttribute("href", "http://localhost:8080/booking/" + booking.booking_no);
-        button.setAttribute("class", "btn btn-primary");
-        let buttonText = document.createTextNode("Get Booking ");
-        button.appendChild(buttonText);
+        let infoButton = document.createElement("a");
+        infoButton.setAttribute("href", "http://localhost:8080/booking/" + booking.booking_no);
+        infoButton.setAttribute("class", "btn btn-primary");
+        let infoButtonText = document.createTextNode("Get Booking ");
+        infoButton.appendChild(infoButtonText);
+
+        let deleteButton = document.createElement("button");
+        deleteButton.setAttribute("class", "btn btn-danger");
+        let buttonText = document.createTextNode("Cancel booking");
+        deleteButton.appendChild(buttonText);
+        deleteButton.addEventListener("click", deleteBooking);
+        deleteButton.setAttribute("id", booking.booking_no);
 
 
         document.getElementById("bookings-container").appendChild(col);
@@ -70,7 +77,8 @@ function displayBookings() {
         cardBody.appendChild(participants);
         cardBody.appendChild(name);
         cardBody.appendChild(lastName);
-        cardBody.appendChild(button);
+        cardBody.appendChild(infoButton);
+        cardBody.appendChild(deleteButton);
     }
 }
 
@@ -119,6 +127,24 @@ function saveBooking() {
         refresh();
 
     }
+}
+
+function deleteBooking(event) {
+    const bookingToDelete = event.target.id;
+
+    let deleteActivityRequest = {
+        method: "POST",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: null
+    }
+
+    let url = "http://localhost:8080/api/delete-booking/" + bookingToDelete;
+
+    fetch(url, deleteActivityRequest).then(data => refresh());
+
+
 }
 
 function refresh() {
