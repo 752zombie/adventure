@@ -2,10 +2,10 @@ let bookings;
 function fetchBookings() {
     const url = "http://localhost:8080/api/get-bookings";
     const prom = fetch(url).then(data => data.json());
-    prom.then(json => {bookings = json; displayBookings()});
+    prom.then(json => {bookings = json; displayBookings(bookings)});
 }
 
-function displayBookings() {
+function displayBookings(bookings) {
     for (let booking of bookings) {
 
         let col = document.createElement("div");
@@ -145,6 +145,25 @@ function deleteBooking(event) {
     fetch(url, deleteActivityRequest).then(data => refresh());
 
 
+}
+
+function searchBookings() {
+    const activityName = document.getElementById("search-input").value;
+
+    let resultBookings = [];
+    for (let booking of bookings) {
+        if (activityName.localeCompare(booking.activity_name) === 0) {
+            resultBookings.push(booking);
+        }
+    }
+
+    refreshNoFetch();
+    displayBookings(resultBookings);
+
+}
+
+function refreshNoFetch() {
+    document.getElementById("bookings-container").innerHTML = "";
 }
 
 function refresh() {
